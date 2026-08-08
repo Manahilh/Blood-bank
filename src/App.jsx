@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import Donors from "./pages/Donors";
+import Donate from "./pages/Donate";
 import Request from "./pages/Request";
 import Requests from "./pages/Requests";
 import Admin from "./pages/Admin";
@@ -13,59 +14,46 @@ import ProtectedRoute from "./routes/ProtectedRoute";
 import AdminRoute from "./routes/AdminRoute";
 
 import DonorForm from "./pages/DonorForm";
-import Navbar from "./components/Navbar";
+import Navbar from "./components/navbar";
 
 function App() {
   const location = useLocation();
 
-  // Home aur Login page par sidebar nahi dikhana
+  // Login aur Home page par sidebar nahi dikhana
   const hideNavbar =
-    location.pathname === "/" ||
-    location.pathname === "/login";
+    location.pathname === "/login" ||
+    location.pathname === "/";
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div>
 
-      {/* =========================
-          LEFT SIDEBAR
-      ========================= */}
+      {/* Sidebar */}
       {!hideNavbar && <Navbar />}
 
-
-      {/* =========================
-          MAIN CONTENT
-      ========================= */}
+      {/* Main Content */}
       <main
-        className={
-          !hideNavbar
-            ? "ml-72 min-h-screen p-6 md:p-8"
-            : "min-h-screen"
-        }
-      >
+  className={
+    !hideNavbar
+      ? "ml-72 p-8 min-h-screen bg-gray-50"
+      : ""
+  }
+>
 
         <Routes>
 
-          {/* =========================
-              HOME
-          ========================= */}
+          {/* Home */}
           <Route
             path="/"
             element={<Home />}
           />
 
-
-          {/* =========================
-              LOGIN
-          ========================= */}
+          {/* Login */}
           <Route
             path="/login"
             element={<Login />}
           />
 
-
-          {/* =========================
-              DASHBOARD
-          ========================= */}
+          {/* Dashboard */}
           <Route
             path="/dashboard"
             element={
@@ -75,10 +63,7 @@ function App() {
             }
           />
 
-
-          {/* =========================
-              DONORS
-          ========================= */}
+          {/* Donors */}
           <Route
             path="/donors"
             element={
@@ -88,10 +73,7 @@ function App() {
             }
           />
 
-
-          {/* =========================
-              DONOR REGISTRATION
-          ========================= */}
+          {/* Donor Form */}
           <Route
             path="/donor-form"
             element={
@@ -101,10 +83,7 @@ function App() {
             }
           />
 
-
-          {/* =========================
-              BLOOD REQUEST
-          ========================= */}
+          {/* Blood Request */}
           <Route
             path="/request"
             element={
@@ -114,10 +93,7 @@ function App() {
             }
           />
 
-
-          {/* =========================
-              ALL REQUESTS
-          ========================= */}
+          {/* Requests */}
           <Route
             path="/requests"
             element={
@@ -127,10 +103,7 @@ function App() {
             }
           />
 
-
-          {/* =========================
-              ADMIN
-          ========================= */}
+          {/* Admin */}
           <Route
             path="/admin"
             element={
@@ -140,10 +113,7 @@ function App() {
             }
           />
 
-
-          {/* =========================
-              404 PAGE
-          ========================= */}
+          {/* Not Found */}
           <Route
             path="*"
             element={<NotFound />}
