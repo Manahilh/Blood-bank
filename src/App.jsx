@@ -31,13 +31,14 @@ function App() {
       {!hideNavbar && <Navbar />}
 
       {/* Main Content */}
-      <main
+     <main
   className={
     !hideNavbar
-      ? "ml-72 p-8 min-h-screen bg-gray-50"
+      ? "ml-0 lg:ml-72 p-4 sm:p-6 lg:p-8 min-h-screen bg-gray-50"
       : ""
   }
 >
+      
 
         <Routes>
 
